@@ -1,0 +1,7 @@
+name: XE-1
+asn: 100
+bgp:
+  - neighbor: 192.168.2.2
+    rasn: 200
+  - neighbor: 192.168.3.3
+    rasn: 300

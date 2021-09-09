@@ -1,0 +1,6 @@
+hostname {{ name }}
+!
+router bgp {{ asn }}
+ {% for neighbor in bgp %}
+ neighbor {{ neighbor.neighbor }} remote-as {{ neighbor.rasn }}
+ {% endfor %}

@@ -1,0 +1,9 @@
+[
+    {
+        "hostname": "xe-1",
+        "IP": "192.168.124.11",
+        "type": "ios",
+        "user": "admin",
+        "password": "admin"
+    }
+]

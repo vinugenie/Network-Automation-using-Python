@@ -1,0 +1,16 @@
+hostname {{ hostname }}
+!
+ip domain-name {{ domain }}
+!
+interface loopback0
+ description Management interface
+ ip address {{ management }} 255.255.255.255
+
+!
+router ospf {{ ospf.process }}
+ router-id {{ management }}
+!
+{% for interface in ospf.interfaces %}
+interface {{ interface.name }}
+ ip ospf {{ ospf.process }} area {{ interface.area }}
+{% endfor %}

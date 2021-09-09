@@ -1,0 +1,13 @@
+---
+global:
+    data:
+        domain: domain.local
+        asn: 65000
+
+xe-routers:
+    groups:
+        - global
+
+nx-routers:
+    groups:
+        - global

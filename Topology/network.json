@@ -1,0 +1,127 @@
+[
+    {
+        "host": "XE-1",
+        "management_ip": "192.168.100.11",
+        "connections": [
+            {
+                "local-interface": "GigabitEthernet1",
+                "remote-host": "NX-2",
+                "remote-interface": "Ethernet1/1"
+            },
+            {
+                "local-interface": "GigabitEthernet2",
+                "remote-host": "XE-3",
+                "remote-interface": "GigabitEthernet2"
+            },
+            {
+                "local-interface": "GigabitEthernet4",
+                "remote-host": "XE-4",
+                "remote-interface": "GigabitEthernet2"
+            },
+            {
+                "local-interface": "GigabitEthernet3",
+                "remote-host": "XE-5",
+                "remote-interface": "GigabitEthernet1"
+            }
+        ]
+    },
+    {
+        "host": "NX-2",
+        "management_ip": "192.168.100.12",
+        "connections": [
+            {
+                "local-interface": "Ethernet1/1",
+                "remote-host": "XE-1",
+                "remote-interface": "GigabitEthernet1"
+            },
+            {
+                "local-interface": "Ethernet1/2",
+                "remote-host": "XE-4",
+                "remote-interface": "GigabitEthernet2"
+            },
+            {
+                "local-interface": "GigabitEthernet4",
+                "remote-host": "XE-3",
+                "remote-interface": "GigabitEthernet2"
+            },
+            {
+                "local-interface": "Ethernet1/3",
+                "remote-host": "XE-5",
+                "remote-interface": "GigabitEthernet2"
+            }
+        ]
+    },
+    {
+        "host": "XE-3",
+        "management_ip": "192.168.100.13",
+        "connections": [
+            {
+                "local-interface": "GigabitEthernet1",
+                "remote-host": "XE-4",
+                "remote-interface": "GigabitEthernet1"
+            },
+            {
+                "local-interface": "GigabitEthernet2",
+                "remote-host": "XE-1",
+                "remote-interface": "GigabitEthernet2"
+            },
+            {
+                "local-interface": "GigabitEthernet4",
+                "remote-host": "NX-2",
+                "remote-interface": "GigabitEthernet2"
+            },
+            {
+                "local-interface": "GigabitEthernet3",
+                "remote-host": "XE-5",
+                "remote-interface": "GigabitEthernet3"
+            }
+        ]
+    },
+    {
+        "host": "XE-4",
+        "management_ip": "192.168.100.14",
+        "connections": [
+            {
+                "local-interface": "GigabitEthernet1",
+                "remote-host": "XE-3",
+                "remote-interface": "GigabitEthernet1"
+            },
+            {
+                "local-interface": "GigabitEthernet2",
+                "remote-host": "NX-2",
+                "remote-interface": "Ethernet1/2"
+            },
+            {
+                "local-interface": "GigabitEthernet3",
+                "remote-host": "XE-5",
+                "remote-interface": "GigabitEthernet4"
+            }
+        ]
+    },
+    {
+        "host": "XE-5",
+        "management_ip": "192.168.100.15",
+        "connections": [
+            {
+                "local-interface": "GigabitEthernet1",
+                "remote-host": "XE-1",
+                "remote-interface": "GigabitEthernet3"
+            },
+            {
+                "local-interface": "GigabitEthernet2",
+                "remote-host": "NX-2",
+                "remote-interface": "Ethernet1/3"
+            },
+            {
+                "local-interface": "GigabitEthernet3",
+                "remote-host": "XE-3",
+                "remote-interface": "GigabitEthernet3"
+            },
+            {
+                "local-interface": "GigabitEthernet4",
+                "remote-host": "XE-4",
+                "remote-interface": "GigabitEthernet3"
+            }
+        ]
+    }
+]

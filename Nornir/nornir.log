@@ -1,0 +1,89 @@
+2021-09-09 15:44:03,846 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_facts']} on 2 hosts
+2021-09-09 15:44:03,853 - nornir.core.task -    ERROR -      start() - Host 'NX-2': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/opt/automation/training/lib/python3.8/site-packages/urllib3/connection.py", line 169, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/automation/training/lib/python3.8/site-packages/urllib3/util/connection.py", line 96, in create_connection
+    raise err
+  File "/opt/automation/training/lib/python3.8/site-packages/urllib3/util/connection.py", line 86, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/automation/training/lib/python3.8/site-packages/urllib3/connectionpool.py", line 699, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/automation/training/lib/python3.8/site-packages/urllib3/connectionpool.py", line 382, in _make_request
+    self._validate_conn(conn)
+  File "/opt/automation/training/lib/python3.8/site-packages/urllib3/connectionpool.py", line 1010, in _validate_conn
+    conn.connect()
+  File "/opt/automation/training/lib/python3.8/site-packages/urllib3/connection.py", line 353, in connect
+    conn = self._new_conn()
+  File "/opt/automation/training/lib/python3.8/site-packages/urllib3/connection.py", line 181, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f01c66d1640>: Failed to establish a new connection: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/automation/training/lib/python3.8/site-packages/requests/adapters.py", line 439, in send
+    resp = conn.urlopen(
+  File "/opt/automation/training/lib/python3.8/site-packages/urllib3/connectionpool.py", line 755, in urlopen
+    retries = retries.increment(
+  File "/opt/automation/training/lib/python3.8/site-packages/urllib3/util/retry.py", line 574, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='192.168.124.12', port=443): Max retries exceeded with url: /ins (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f01c66d1640>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/automation/training/lib/python3.8/site-packages/napalm/nxapi_plumbing/api_client.py", line 63, in _send_request
+    response = requests.post(
+  File "/opt/automation/training/lib/python3.8/site-packages/requests/api.py", line 117, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/opt/automation/training/lib/python3.8/site-packages/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/automation/training/lib/python3.8/site-packages/requests/sessions.py", line 542, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/automation/training/lib/python3.8/site-packages/requests/sessions.py", line 655, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/automation/training/lib/python3.8/site-packages/requests/adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='192.168.124.12', port=443): Max retries exceeded with url: /ins (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f01c66d1640>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/automation/training/lib/python3.8/site-packages/napalm/nxos/nxos.py", line 705, in open
+    self._send_command("show hostname")
+  File "/opt/automation/training/lib/python3.8/site-packages/napalm/nxos/nxos.py", line 719, in _send_command
+    return self.device.show(command, raw_text=raw_text)
+  File "/opt/automation/training/lib/python3.8/site-packages/napalm/nxapi_plumbing/device.py", line 67, in show
+    result = self.show_list(commands, raw_text)
+  File "/opt/automation/training/lib/python3.8/site-packages/napalm/nxapi_plumbing/device.py", line 95, in show_list
+    return self.api._nxapi_command(commands, method=cmd_method)
+  File "/opt/automation/training/lib/python3.8/site-packages/napalm/nxapi_plumbing/api_client.py", line 110, in _nxapi_command
+    response = self._send_request(commands, method=method)
+  File "/opt/automation/training/lib/python3.8/site-packages/napalm/nxapi_plumbing/api_client.py", line 72, in _send_request
+    raise NXAPIConnectionError(str(e))
+napalm.nxapi_plumbing.errors.NXAPIConnectionError: HTTPSConnectionPool(host='192.168.124.12', port=443): Max retries exceeded with url: /ins (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f01c66d1640>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/automation/training/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/opt/automation/training/lib/python3.8/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/opt/automation/training/lib/python3.8/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/opt/automation/training/lib/python3.8/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/opt/automation/training/lib/python3.8/site-packages/nornir_napalm/plugins/connections/__init__.py", line 57, in open
+    connection.open()
+  File "/opt/automation/training/lib/python3.8/site-packages/napalm/nxos/nxos.py", line 708, in open
+    raise ConnectionException("Cannot connect to {}".format(self.hostname))
+napalm.base.exceptions.ConnectionException: Cannot connect to 192.168.124.12
+
+2021-09-09 15:47:40,750 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_facts']} on 2 hosts

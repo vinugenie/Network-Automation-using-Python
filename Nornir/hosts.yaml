@@ -1,0 +1,18 @@
+---
+XE-1:
+    hostname: 192.168.124.11
+    port: 22
+    username: admin
+    password: admin
+    platform: ios
+    groups:
+        - xe-routers
+
+NX-2:
+    hostname: 192.168.124.12
+    port: 443
+    username: admin
+    password: admin
+    platform: nxos
+    groups:
+        - nx-routers

@@ -1,0 +1,21 @@
+[
+    {
+        "hostname": "Ninja-RTR",
+        "domain": "vinugenie.local",
+        "management": "192.168.11.11",
+        "ospf": {
+            "process": 100,
+            "interfaces": [
+                {
+                    "name": "GigabitEthernet2",
+                    "area": 0
+                },
+                {
+                    "name": "GigabitEthernet3",
+                    "area": 1
+                }
+            ]
+
+        }
+    }
+]
